@@ -4,34 +4,6 @@ include $(TOPDIR)/rules.mk
 PKG_NAME:=easytier
 PKG_VERSION:=$(or $(EASYTIER_VERSION),2.5.0)
 
-ifeq ($(ARCH),mipsel)
-	APP_ARCH:=mipsel
-endif
-ifeq ($(ARCH),mips)
-	APP_ARCH:=mips
-endif
-ifeq ($(ARCH),arm)
-	APP_ARCH:=arm
-endif
-ifeq ($(BOARD),kirkwood)
-	APP_ARCH:=arm
-endif
-ifeq ($(ARCH),armv7)
-	APP_ARCH:=armv7
-endif
-ifeq ($(ARCH),aarch64)
-	APP_ARCH:=aarch64
-endif
-ifeq ($(ARCH),arm64)
-	APP_ARCH:=aarch64
-endif
-ifeq ($(ARCH),armv8)
-	APP_ARCH:=aarch64
-endif
-ifeq ($(ARCH),x86_64)
-	APP_ARCH:=x86_64
-endif
-
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
 
 include $(INCLUDE_DIR)/package.mk
@@ -60,7 +32,7 @@ define Package/$(PKG_NAME)/config
 endef
 
 define Build/Prepare
-	[ ! -f $(PKG_BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION).zip ] && wget https://github.com/EasyTier/EasyTier/releases/download/v$(PKG_VERSION)/$(PKG_NAME)-linux-$(APP_ARCH)-v$(PKG_VERSION).zip -O $(PKG_NAME)-$(PKG_VERSION).zip
+	[ ! -f $(PKG_BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION).zip ] && wget https://github.com/dph5199278/EasyTier/actions/runs/23480943607/artifacts/6076475475 -O $(PKG_NAME)-$(PKG_VERSION).zip
 	unzip -j $(PKG_NAME)-$(PKG_VERSION).zip -d $(PKG_BUILD_DIR)
 endef
 
