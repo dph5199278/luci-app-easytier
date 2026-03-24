@@ -12,7 +12,7 @@ define Package/$(PKG_NAME)
 	SECTION:=net
 	CATEGORY:=Network
 	TITLE:=A simple, decentralized mesh VPN with WireGuard support.
-	DEPENDS:=@(x86_64||arm||aarch64||mipsel||mips) +kmod-tun
+	DEPENDS:=+kmod-tun
 	URL:=https://github.com/EasyTier/EasyTier
 	MENU:=1
 endef
@@ -25,7 +25,6 @@ define Package/$(PKG_NAME)/config
 	config EASYTIER_INCLUDE_WEBCONSOLE
 		bool "Include Web Console (easytier-web)"
 		depends on PACKAGE_$(PKG_NAME)
-		depends on !@(mips||mipsel)
 		default y
 		help
 		  Install the easytier-web web console.
