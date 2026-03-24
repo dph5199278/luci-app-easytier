@@ -28,7 +28,7 @@ jobs:
       fail-fast: false
       matrix:
         arch:
-          - x86-generic
+          - i386_pentium4
           
         sdk:
           - 22.03.7
