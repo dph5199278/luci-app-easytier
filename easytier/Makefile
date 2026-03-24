@@ -31,7 +31,7 @@ define Package/$(PKG_NAME)/config
 endef
 
 define Build/Prepare
-	[ ! -f $(PKG_BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION).zip ] && wget https://github.com/dph5199278/EasyTier/actions/runs/23480943607/artifacts/6076475475 -O $(PKG_NAME)-$(PKG_VERSION).zip
+	[ ! -f $(PKG_BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION).zip ] && wget https://github.com/dph5199278/EasyTier/releases/download/v$(PKG_VERSION)/easytier-linux-i686.zip -O $(PKG_NAME)-$(PKG_VERSION).zip
 	unzip -j $(PKG_NAME)-$(PKG_VERSION).zip -d $(PKG_BUILD_DIR)
 endef
 
